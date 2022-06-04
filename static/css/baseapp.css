@@ -1,6 +1,7 @@
 @import url('//fonts.cdnfonts.com/css/billabong');
 body {
   background: #fafafa;
+  
 }
 
 /* start header */
@@ -119,7 +120,3 @@ body {
   display: none;
 }
 
-h1 {
-  color: aqua;
-}
-/* end header */
