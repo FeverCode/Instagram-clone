@@ -8,6 +8,16 @@ from cloudinary.models import CloudinaryField
 class Profile(models.Model):
     profile_photo = CloudinaryField('image')
     bio = models.TextField()
+    
+    
+    def __str__(self):
+        return self.profile_photo
+    
+    def save_profile(self):
+        self.save()
+    
+    def delete_profile(self):
+        self.delete()
 
 
 
@@ -23,5 +33,15 @@ class Image(models.Model):
     
     
 
+    def __str__(self):
+        return self.image
     
+    def save_image(self):
+        self.save()
+    
+    def delete_image(self):
+        self.delete()
+    
+    def update_caption(self):
+        self.update()
 
