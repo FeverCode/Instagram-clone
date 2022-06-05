@@ -15,3 +15,6 @@ makemigrations:
 
 test:
 	python3 manage.py test photos
+
+superuser:
+	python3 manage.py createsuperuser
