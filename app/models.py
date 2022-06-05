@@ -6,12 +6,13 @@ from cloudinary.models import CloudinaryField
 
 
 class Profile(models.Model):
+    username = models.CharField(max_length=30, default='DEFAULT VALUE')
     profile_photo = CloudinaryField('image')
-    bio = models.TextField()
+    bio = models.TextField(null=True, blank=True)
     
     
     def __str__(self):
-        return self.profile_photo
+        return self.username
     
     def save_profile(self):
         self.save()
@@ -25,16 +26,16 @@ class Profile(models.Model):
 class Image(models.Model):
     image = CloudinaryField('image')
     name = models.CharField(max_length=50)
-    captions = models.TextField()
+    captions = models.TextField(null=True, blank=True)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    likes = models.IntegerField()
-    comments = models.TextField()
+    likes = models.IntegerField(default='0',null=True, blank=True)
+    comments = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     
     
 
     def __str__(self):
-        return self.image
+        return self.name
     
     def save_image(self):
         self.save()
