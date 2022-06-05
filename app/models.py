@@ -1,6 +1,8 @@
 from unicodedata import name
 from django.db import models
 from cloudinary.models import CloudinaryField
+from django.contrib.auth.models import User
+from tinymce.models import HTMLField
 
 # Create your models here.
 
@@ -27,7 +29,7 @@ class Image(models.Model):
     image = CloudinaryField('image')
     name = models.CharField(max_length=50)
     captions = models.TextField(null=True, blank=True)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    profile = models.ForeignKey(User, on_delete=models.CASCADE)
     likes = models.IntegerField(default='0',null=True, blank=True)
     comments = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)

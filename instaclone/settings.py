@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'app.apps.AppConfig',
     "bootstrap5",
     'cloudinary',
+    'tinymce',
     
 ]
 
