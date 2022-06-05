@@ -1,55 +1,98 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-    <nav>
-        <div class="navigation">
-            <div class="logo">
-                <a class="no-underline" href="#">
-                    InstaClone
+ <nav class="navbar navbar-expand fixed-top navbar-custom">
+        <div class="container" id='navbar'>
+            <div class="justify-content-start">
+                <a class="navbar-brand" href="/">
+                    <span class='align-sub' id='cur-brand'>InstaClone</span>
                 </a>
             </div>
-            <div class="navigation-search-container">
-                <i class="fa fa-search"></i>
-                <input class="search-field" type="text" placeholder="Search">
-                <div class="search-container">
-                    <div class="search-container-box">
-                        <div class="search-results">
 
-                        </div>
-                    </div>
-                </div>
+            <div class="d-none d-md-block justify-content-center">
+                <form action="" method='GET'>
+                    <input name='q' type='text' placeholder='Search...' class='form-control' id='search-bar' autocomplete="off">
+                </form>
             </div>
-            <div class="navigation-icons">
-                <a href="" target="_blank" class="navigation-link">
-                    <i class="fa-solid fa-camera"></i>
-                </a>
-                <a href="" target="_blank" class="navigation-link">
-                    <i class="fa-regular fa-compass"></i>
-                </a>
-                <a class="navigation-link notifica">
-                    <i class="far fa-heart">
-                        <div class="notification-bubble-wrapper">
-                            <div class="notification-bubble">
-                                <span class="notifications-count">99</span>
-                            </div>
-                        </div>
-                    </i>
-                </a>
-                <a href="" class="navigation-link">
-                    <i class="far fa-user-circle"></i>
-                </a>
-                <a href="" id="signout" class="navigation-link">
-                    <i class="fas fa-sign-out-alt"></i>
-                </a>
+
+            <div class="d-none d-md-block justify-content-center">
+                <ul class="navbar-nav" >
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="fas fa-camera"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="fas fa-compass"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="fas fa-heart"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="fas fa-user"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="far fa-paper-plane"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="fas fa-sign-out-alt"></span>
+                        </a>
+                    </li>
+            
+            
+                </ul>
+
             </div>
         </div>
-    </nav>
-</body>
+  </nav>
 
-</html>
+
+
+
+<nav class="navbar fixed-bottom navbar-light bg-light navbar-expand nav-footer">
+
+                <ul class="navbar-nav nav-fill w-100" >
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="fas fa-camera fa-2x"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="fas fa-compass fa-2x"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="fas fa-heart fa-2x"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="fas fa-user fa-2x"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="far fa-paper-plane fa-2x"></span>
+                        </a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="fas fa-sign-out-alt fa-2x"></span>
+                        </a>
+                    </li>
+                    
+
+
+                </ul>
+
+</nav>

@@ -6,7 +6,7 @@ body {
 }
 
 /* start header */
-
+/* 
 .navigation {
   background-color: #ffffff;
   height: 80px;
@@ -20,18 +20,18 @@ body {
   justify-content: space-around;
   padding: 0px 50px;
   box-sizing: border-box;
-  z-index: 2;
+  z-index: 2; */
   /* animation magic */
-  transition: all 0.4s ease-in-out;
+  /* transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
-}
+} */
 
-.shrink {
+/* .shrink {
   height: 50px;
-}
+} */
 
-.navigation .logo a {
+/* .navigation .logo a {
   position: relative;
   color: #000000;
   font-size: 30px;
@@ -64,7 +64,7 @@ body {
 
 @media only screen and (min-width: 320px) and (max-width: 650px) {
   /* Navigation */
-  .navigation {
+  /* .navigation {
     padding: 0 20px;
     justify-content: space-between;
   }
@@ -74,9 +74,9 @@ body {
   .navigation-icons {
     display: flex;
   }
-}
+} */
 
-.navigation-icons {
+/* .navigation-icons {
   display: flex;
 }
 
@@ -119,12 +119,12 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 500;
   display: none;
-}
+} */
 
 
-a{
+/* a{
   text-decoration: none;
-}
+} */ 
 
 .Instagram-card{
 	background: #ffffff;
@@ -211,4 +211,72 @@ hr{
   border: none;
   margin-left: 10px;
   width: 100%;
+}
+
+
+
+#search-bar{
+    height: 28px;
+    width: 215px;
+    background-color: #FAFAFA;
+}
+
+#explore-layout{
+    margin-left:  0;
+    margin-right: 0;
+}
+
+
+
+body{
+    background-color: #FAFAFA;
+}
+
+
+
+.navbar-nav> li{
+  padding-left:10px;
+  padding-right:10px;
+}
+
+nav {
+  border-bottom: 1px solid #E6E6E6;
+
+}
+
+.navbar-custom{
+    background-color: #FFFFFF
+}
+
+.navbar-nav> li{
+  padding-left:10px;
+  padding-right:10px;
+}
+
+nav {
+  border-bottom: 1px solid #E6E6E6;
+
+}
+
+
+@media (min-width: 1200px) {
+    #navbar{
+        max-width: 1010px;
+    }
+}
+
+@media (min-width: 768px){
+    .nav-footer {
+        display : none;
+        visibility : hidden;
+    }
+}
+
+#cur-brand {
+  font-size: 30px;
+  font-family: "billabong", sans-serif;
+}
+
+.nav-item {
+  color:black;
 }
