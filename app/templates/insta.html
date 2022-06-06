@@ -1,1 +1,49 @@
-<h1>Insta works</h1>
+<div class="container insta">
+  <div style="margin-top:100px;" class="container">
+    {% for image in object_list %}
+    <div class="Instagram-card">
+      <div class="Instagram-card-header mb-2">
+        <i class="far fa-user-circle" class="Instagram-card-user-image"></i>
+        <i class="Instagram-card-user-name"></i>{{image.profile}}</br>
+      </div>
+
+      <div class="Instagram-card-image"data-bs-toggle="modal" data-bs-target="#exampleModal{{image.id}}">
+        <img src={{image.image.url}} class="img-fluid" alt="">
+      </div>
+
+      <div class="Instagram-card-content">
+        <p class="Likes">{{image.created}}</p>
+        <a class="Instagram-card-content-user">{{image.profile}}</a> I {{image.captions}}
+        <p class="footer-action-icons text-dark">{{image.likes}} <i class="fa fa-heart-o"></i></p>
+        <p class="comments">See all comments</p>
+        <br><a class="user-comment" href="">chrisobrien64</a> {{image.comments}}</br>
+        <hr>
+      </div>
+
+      <div class="Instagram-card-footer">
+        <input class="comments-input" type="text" placeholder="Comments..." />
+        <a class="footer-action-icons" href="#"><i class="fa fa-ellipsis-h"></i></a>
+      </div>
+
+      <div class="modal fade" id="exampleModal{{image.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"> <i class="far fa-user-circle" class="Instagram-card-user-image"></i>
+              <i class="Instagram-card-user-name"></i>{{image.profile}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <img src={{image.image.url}} class="img-fluid" alt="">
+            </div>
+            <div class="modal-footer justify-content-center gap-2">
+              <p class="Likes">{{image.created}}</p></br>
+              <a class="Instagram-card-content-user ">{{image.profile}}</a> I {{image.captions}}
+              <a class="footer-action-icons"><i class="fa fa-heart-o"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>

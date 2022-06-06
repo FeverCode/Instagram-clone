@@ -1,42 +1,114 @@
-<div class="navigation">
-  <div class="logo">
-    <a class="no-underline" href="#">
-      Insta Clone
-    </a>
-  </div>
-  <div class="navigation-search-container">
-    <i class="fa fa-search"></i>
-    <input class="search-field" type="text" placeholder="Search">
-    <div class="search-container">
-      <div class="search-container-box">
-        <div class="search-results">
+ <nav class="navbar navbar-expand fixed-top navbar-custom">
+        <div class="container" id='navbar'>
+            <div class="justify-content-start">
+                <a class="navbar-brand" href="/">
+                    <span class='align-sub' id='cur-brand'>InstaClone</span>
+                </a>
+            </div>
 
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="navigation-icons">
-    <a href="" target ="_blank" class="navigation-link">
-      <i class="fa-regular fa-compass"></i>
-    </a>
-    <a class="navigation-link notifica">
-      <i class="far fa-heart">
-        <div class="notification-bubble-wrapper">
-          <div class="notification-bubble">
-            <span class="notifications-count">99</span>
-          </div>
-        </div>
-      </i>
-    </a>
-    <a href="" class="navigation-link">
-      <i class="far fa-user-circle"></i>
-    </a>
-    <a href="" id="signout" class="navigation-link">
-      <i class="fas fa-sign-out-alt"></i>
-    </a>
-  </div>
-</div>
+            <div class="d-none d-md-block justify-content-center">
+                <form action="{% url 'search_results' %}" method='GET'>
+                    <input name='profile' type='text' placeholder='Search...' class='form-control' id='search-bar' autocomplete="off">
+                </form>
+            </div>
 
-<!-- scroll down test--->
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<!-- scroll down test--->
+            <div class="d-none d-md-block justify-content-center">
+                <ul class="navbar-nav" >
+                    <li class="nav-item">
+                        <a href="{%url 'new-image'%}">
+                            <span class="fas fa-camera fa-1x"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="fas fa-compass fa-1x"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="fas fa-heart fa-1x"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'user-profile'%}">
+                            <span class="fas fa-user fa-1x"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="far fa-paper-plane fa-1x"></span>
+                        </a>
+                    </li>
+
+                   {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}">
+                            <span class="fas fa-sign-out-alt fa-1x"></span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'login' %}">
+                            <span class="fas fa-sign-in-alt fa-1x"></span>
+                        </a>
+                    </li>
+                    {% endif %}
+            
+            
+                </ul>
+
+            </div>
+        </div>
+  </nav>
+
+
+
+
+<nav class="navbar fixed-bottom navbar-light bg-light navbar-expand nav-footer">
+
+                <ul class="navbar-nav nav-fill w-100" >
+                    <li class="nav-item">
+                        <a href="{%url 'new-image'%}">
+                            <span class="fas fa-camera fa-1x"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="fas fa-compass fa-1x"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="fas fa-heart fa-1x"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'profile'%}">
+                            <span class="fas fa-user fa-1x"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">
+                            <span class="far fa-paper-plane fa-1x"></span>
+                        </a>
+                    </li>
+                
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}">
+                            <span class="fas fa-sign-out-alt fa-1x"></span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'login' %}">
+                            <span class="fas fa-sign-in-alt fa-1x"></span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    
+
+
+                </ul>
+
+</nav>
