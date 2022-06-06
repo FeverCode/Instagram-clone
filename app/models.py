@@ -1,4 +1,5 @@
 import email
+from email.mime import image
 from django.db import models
 from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
@@ -7,25 +8,21 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
-    username = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_photo = CloudinaryField('image')
     bio = models.TextField(null=True, blank=True)
     location = models.CharField(max_length=30, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
     
-    
     def __str__(self):
-        return self.username
-    
+        return f'{self.user.username} Profile'
+
     def save_profile(self):
         self.save()
     
     def delete_profile(self):
         self.delete()
-
-
-
-
+        
 
 
 class Image(models.Model):
@@ -38,7 +35,10 @@ class Image(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     
     
-
+    @classmethod
+    def search_by_profile(cls, search_term):
+        name = search_term = cls.objects.filter(profile__username__icontains=search_term)
+        return name
     def __str__(self):
         return self.name
     

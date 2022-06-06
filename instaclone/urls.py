@@ -29,6 +29,8 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='registration/logout.html'), name='logout'),
     path('', include("app.urls")),
     path('tinymce/', include('tinymce.urls')),
+    path('search/', views.SearchResults, name='search_results'),
+    path('profile/', views.profile, name='profile'),
    
     
    

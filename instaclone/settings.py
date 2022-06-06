@@ -46,9 +46,12 @@ INSTALLED_APPS = [
     "bootstrap5",
     'cloudinary',
     'tinymce',
+    'crispy_forms',
     
     
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 
