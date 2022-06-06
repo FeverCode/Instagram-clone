@@ -12,6 +12,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 
 # Create your views here.
@@ -34,8 +36,7 @@ def register(request):
         return render(request, 'registration/register.html', {'form': form})
 
 
-
-class ImageList(ListView):
+class ImageList(LoginRequiredMixin, ListView):
     model = Image
     
     def get_context_data(self, **kwargs):
