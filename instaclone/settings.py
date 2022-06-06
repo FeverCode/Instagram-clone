@@ -47,7 +47,10 @@ INSTALLED_APPS = [
     'cloudinary',
     'tinymce',
     
+    
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -145,3 +148,7 @@ cloudinary.config(
     api_key=config('CD_API_KEY'),
     api_secret=config('CD_API_KEY_SECRET')
 )
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'login'
+

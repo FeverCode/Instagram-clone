@@ -1,16 +1,17 @@
-from unicodedata import name
+import email
 from django.db import models
 from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
-from tinymce.models import HTMLField
 
 # Create your models here.
 
 
 class Profile(models.Model):
-    username = models.CharField(max_length=30, default='DEFAULT VALUE')
+    username = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_photo = CloudinaryField('image')
     bio = models.TextField(null=True, blank=True)
+    location = models.CharField(max_length=30, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
     
     
     def __str__(self):
@@ -21,6 +22,8 @@ class Profile(models.Model):
     
     def delete_profile(self):
         self.delete()
+
+
 
 
 
