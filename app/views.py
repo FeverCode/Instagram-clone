@@ -59,7 +59,7 @@ def new_image(request):
         form = NewImageForm()
     return render(request, 'new_image.html', {'form': form})
 
-
+@login_required
 def SearchResults(request):
 
     if 'profile' in request.GET and request.GET["profile"]:

@@ -16,7 +16,8 @@
 </head>
 
 <body>
-  <div class="container">
+  {% include "navbar.html" %}
+  <div class="container mt-5">
     <form action="{%url 'new-image'%}" method="post" enctype="multipart/form-data">
       {%csrf_token%}
 
