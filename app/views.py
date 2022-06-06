@@ -85,7 +85,7 @@ def profile(request):
             p_form.save()
             messages.success(request, f'Your account has been updated')
             # prevents post get redirect pattern. sends a get request instead of post request
-            return redirect('profile')
+            return redirect('user-profile')
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
@@ -95,3 +95,9 @@ def profile(request):
 
     }
     return render(request, 'profile.html', context)
+
+
+@login_required
+def user_profile(request):
+    profile = Profile.objects.all()
+    return render(request, 'user-profile.html', {'profile': profile})
