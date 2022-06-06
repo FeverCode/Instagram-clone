@@ -32,6 +32,7 @@ def register(request):
         return render(request, 'registration/register.html', {'form': form})
 
 
+
 class ImageList(ListView):
     model = Image
     
@@ -41,7 +42,7 @@ class ImageList(ListView):
         return context
     
 
-
+@login_required
 def new_image(request):
     current_user = request.user
     if request.method == 'POST':
