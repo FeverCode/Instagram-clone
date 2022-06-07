@@ -45,19 +45,19 @@ class ImageList(LoginRequiredMixin, ListView):
         return context
     
 
-@login_required
-def new_image(request):
-    current_user = request.user
-    if request.method == 'POST':
-        form = NewImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            image = form.save(commit=False)
-            image.author = current_user
-            image.save()
-        return redirect ('list')
-    else:
-        form = NewImageForm()
-    return render(request, 'new_image.html', {'form': form})
+# @login_required
+# def new_image(request):
+#     current_user = request.user
+#     if request.method == 'POST':
+#         form = NewImageForm(request.POST or None, request.FILES or None)
+#         if form.is_valid():
+#             profile = form.save(commit=False)
+#             profile.user = current_user
+#             profile.save()
+#         return redirect ('list')
+#     else:
+#         form = NewImageForm()
+#     return render(request, 'new_image.html', {'form': form})
 
 @login_required
 def SearchResults(request):
@@ -101,3 +101,21 @@ def profile(request):
 def user_profile(request):
     profile = Profile.objects.all()
     return render(request, 'user-profile.html', {'profile': profile})
+
+
+class CreatePostView(LoginRequiredMixin, CreateView):
+    model = Image
+    fields = ['image', 'captions']
+    template_name = 'new_image.html'
+    success_url = '/'
+
+    #   ↓        ↓ method of the CreatePostView
+    def form_valid(self, form):
+        form.instance.profile = self.request.user
+        return super().form_valid(form)
+
+    #   ↓              ↓ method of the CreatePostView
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['tag_line'] = 'Create new post'
+        return data

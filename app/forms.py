@@ -6,10 +6,8 @@ from django.contrib.auth.models import User
 class NewImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        exclude = ['comments','name','likes',]
-        widgets = {
-            'tags': forms.CheckboxSelectMultiple(),
-        }
+        exclude = ['name', 'likes', 'comments','profile']
+        
 
 # Create your forms here.
 
