@@ -7,14 +7,15 @@
         <i class="Instagram-card-user-name"></i>{{image.profile.username}}</br>
       </div>
 
-      <div class="Instagram-card-image"data-bs-toggle="modal" data-bs-target="#exampleModal{{image.id}}">
+      <div class="Instagram-card-image" data-bs-toggle="modal" data-bs-target="#exampleModal{{image.id}}">
         <img src={{image.image.url}} class="img-fluid" alt="">
       </div>
 
       <div class="Instagram-card-content">
         <p class="Likes">{{image.created}}</p>
         <a class="Instagram-card-content-user">{{image.profile}}</a> I {{image.captions}}
-        <p class="footer-action-icons text-dark">{{image.saved_likes}}<a href="{% url 'like' image.id image.profile.id %}"> <i class="fa fa-heart-o"></i></a></p>
+        <p class="footer-action-icons text-dark">{{image.saved_likes}}<a
+            href="{% url 'like' image.id image.profile.id %}"> <i class="fa fa-heart-o"></i></a></p>
         <p class="comments">See all comments</p>
         {% for comment in comments %}
         {% if comment.profile.user.id == image.profile.id %}
@@ -24,19 +25,21 @@
         {%endif%}
         {% endfor %}
       </div>
-      
+
 
       <div class="Instagram-card-footer">
         <input class="comments-input" type="text" placeholder="Comments..." />
         <a class="footer-action-icons" href="#"><i class="fa fa-ellipsis-h"></i></a>
       </div>
 
-      <div class="modal fade" id="exampleModal{{image.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="exampleModal{{image.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"> <i class="far fa-user-circle" class="Instagram-card-user-image"></i>
-              <i class="Instagram-card-user-name"></i>{{image.profile}}</h5>
+              <h5 class="modal-title" id="exampleModalLabel"> <i class="far fa-user-circle"
+                  class="Instagram-card-user-image"></i>
+                <i class="Instagram-card-user-name"></i>{{image.profile}}</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

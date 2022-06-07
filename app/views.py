@@ -92,7 +92,7 @@ def profile(request):
 @login_required
 def user_profile(request):
     profile = Profile.objects.all()
-    images = Image.objects.all()
+    images = Image.objects.all().order_by('id').reverse()
     return render(request, 'user-profile.html', {'profile': profile, 'images': images})
 
 
