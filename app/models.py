@@ -13,11 +13,6 @@ class Profile(models.Model):
     bio = models.TextField(null=True, blank=True)
     location = models.CharField(max_length=30, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
-    
-    @classmethod
-    def search_by_profile(cls, search_term):
-        user = cls.objects.get(user=search_term)
-        return user
 
     def __str__(self):
         return self.name

@@ -47,23 +47,6 @@ def index(request):
     
     
     return render(request, 'index.html', {"images": images, "comments": comments}) 
-    
-
-@login_required
-def SearchResults(request):
-    
-
-    if 'profile' in request.GET and request.GET["profile"]:
-        search_term = request.GET.get("profile")
-        user_id = User.objects.get(username=search_term)
-        searched_profile = Profile.search_by_profile(user_id.id)
-        message = f"{search_term}"
-        print(searched_profile)
-        return render(request, 'search.html', {"message": message, "profile": searched_profile,})
-
-    else:
-        message = "You haven't searched for any term"
-        return render(request, 'search.html', {"message": message })
 
 
 @login_required

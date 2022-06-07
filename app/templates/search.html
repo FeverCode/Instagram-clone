@@ -3,24 +3,5 @@
 {% block content %}
 <div class="container pt-5 mt-5">
 
-    {% if profile %}
-    <h4 class=" capitalize text-center">Found <b class="yellow-text">{{ user.username|length }}</b> profiles in <b
-            class="yellow-text">{{ message }}</b> category</h4>
-    {% else %}
-    <h4 class="text-center"> Found 0 profiles for your search {{ message }}</h4>
-
-    <a class="d-block mx-auto" href="/">
-        <button class="btn btn-sm btn-info d-block mx-auto">Go Back</button>
-    </a>
-    {% endif %}
-
-    {% comment %} {% if images %}
-    {% for image in images %}
-      <div class="col-sm-6 col-md-3">
-          <h1>{{image.profile}}</h1>
-      </div>
-    {% endfor %}
-  {% endif %} {% endcomment %}
-  </div>
 </div>
 {% endblock %}

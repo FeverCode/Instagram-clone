@@ -3,8 +3,14 @@
     {% for image in images %}
     <div class="Instagram-card">
       <div class="Instagram-card-header mb-2">
-        <i class="far fa-user-circle" class="Instagram-card-user-image"></i>
-        <i class="Instagram-card-user-name"></i>{{image.profile.username}}</br>
+
+
+        {% if profile %}
+          <img src="{{profile.profile_photo.url}}" class="prof_pic comment-img" alt=""srcset="">
+            {% else %}
+            <i class="far fa-user-circle" class="Instagram-card-user-image"></i>
+            {% endif %}
+            <i class="Instagram-card-user-name"></i>{{image.profile.username}}</br>
       </div>
 
       <div class="Instagram-card-image" data-bs-toggle="modal" data-bs-target="#exampleModal{{image.id}}">
