@@ -14,6 +14,14 @@ class Profile(models.Model):
     location = models.CharField(max_length=30, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
     
+    @classmethod
+    def search_by_profile(cls, search_term):
+        user = cls.objects.get(user=search_term)
+        return user
+
+    def __str__(self):
+        return self.name
+
     def __str__(self):
         return f'{self.user.username} Profile'
 
@@ -30,17 +38,11 @@ class Image(models.Model):
     name = models.CharField(max_length=50)
     captions = models.TextField(null=True, blank=True)
     profile = models.ForeignKey(User, on_delete=models.CASCADE)
-    likes = models.IntegerField(default='0',null=True, blank=True)
-    comments = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     
-    
-    @classmethod
-    def search_by_profile(cls, search_term):
-        name = search_term = cls.objects.filter(profile__username__icontains=search_term)
-        return name
-    def __str__(self):
-        return self.name
+    @property
+    def saved_likes(self):
+        return self.likes.count()
     
     def save_image(self):
         self.save()
@@ -51,3 +53,12 @@ class Image(models.Model):
     def update_caption(self):
         self.update()
 
+class Comment(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
+    image = models.ForeignKey(Image, on_delete=models.SET_NULL, null=True)
+    comment =models.CharField(max_length=255)
+
+class Like(models.Model):
+    image = models.ForeignKey(Image, on_delete=models.SET_NULL, null=True,related_name='likes')
+    profile = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
+    

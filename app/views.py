@@ -1,11 +1,12 @@
 from email.mime import image
 import profile
+from xml.etree.ElementTree import Comment
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
-from .models import Profile, Image
+from .models import *
 from .forms import ProfileUpdateForm, UserRegisterForm, UserUpdateForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
@@ -13,6 +14,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
+
 
 
 
@@ -36,38 +39,27 @@ def register(request):
         return render(request, 'registration/register.html', {'form': form})
 
 
-class ImageList(LoginRequiredMixin, ListView):
-    model = Image
     
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['images'] = Image.objects.all()
-        return context
+@login_required
+def index(request):
+    images = Image.objects.all().order_by('id').reverse()
+    comments = Comment.objects.all()
     
-
-# @login_required
-# def new_image(request):
-#     current_user = request.user
-#     if request.method == 'POST':
-#         form = NewImageForm(request.POST or None, request.FILES or None)
-#         if form.is_valid():
-#             profile = form.save(commit=False)
-#             profile.user = current_user
-#             profile.save()
-#         return redirect ('list')
-#     else:
-#         form = NewImageForm()
-#     return render(request, 'new_image.html', {'form': form})
+    
+    return render(request, 'index.html', {"images": images, "comments": comments}) 
+    
 
 @login_required
 def SearchResults(request):
+    
 
     if 'profile' in request.GET and request.GET["profile"]:
         search_term = request.GET.get("profile")
-        searched_profile = Image.search_by_profile(search_term)
+        user_id = User.objects.get(username=search_term)
+        searched_profile = Profile.search_by_profile(user_id.id)
         message = f"{search_term}"
-
-        return render(request, 'search.html', {"message": message, "profiles": searched_profile})
+        print(searched_profile)
+        return render(request, 'search.html', {"message": message, "profile": searched_profile,})
 
     else:
         message = "You haven't searched for any term"
@@ -100,7 +92,8 @@ def profile(request):
 @login_required
 def user_profile(request):
     profile = Profile.objects.all()
-    return render(request, 'user-profile.html', {'profile': profile})
+    images = Image.objects.all()
+    return render(request, 'user-profile.html', {'profile': profile, 'images': images})
 
 
 class CreatePostView(LoginRequiredMixin, CreateView):
@@ -119,3 +112,10 @@ class CreatePostView(LoginRequiredMixin, CreateView):
         data = super().get_context_data(**kwargs)
         data['tag_line'] = 'Create new post'
         return data
+
+def like(request,image_id,profile_id):
+    image = Image.objects.get(id=image_id)
+    profile = Profile.objects.get(id=profile_id)
+    like = Like(image=image, profile=profile)
+    like.save()
+    return redirect ('list')

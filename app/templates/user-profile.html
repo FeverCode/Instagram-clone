@@ -25,7 +25,7 @@
 
 			<div class="profile-image">
 
-				<img src="https://res.cloudinary.com/fevercode/image/upload/v1654534329/default_n0r7rf.png" alt="">
+				<img src="{{user.profile.profile_photo.url}}" alt="" class="rounded-circle" width="200" />
 
 			</div>
 
@@ -69,26 +69,29 @@
 	<div class="container">
 
 		<div class="gallery">
-
+			{% for image in images %}
+			{% if user.id == image.profile.id %}
 			<div class="gallery-item" tabindex="0">
 
-				<img src="https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?w=500&h=500&fit=crop"
+				<img src="{{image.image.url}}"
 					class="gallery-image" alt="">
 
 				<div class="gallery-item-info">
 
 					<ul>
 						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i
-								class="fas fa-heart" aria-hidden="true"></i> 56</li>
+								class="fas fa-heart" aria-hidden="true"></i>{{image.saved_likes}}</li>
 						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i
-								class="fas fa-comment" aria-hidden="true"></i> 2</li>
+								class="fas fa-comment" aria-hidden="true"></i> </li>
 					</ul>
 
 				</div>
 
 			</div>
+			{% endif %}
+			{% endfor %}
 
-			<div class="gallery-item" tabindex="0">
+			{% comment %} <div class="gallery-item" tabindex="0">
 
 				<img src="https://images.unsplash.com/photo-1497445462247-4330a224fdb1?w=500&h=500&fit=crop"
 					class="gallery-image" alt="">
@@ -104,9 +107,9 @@
 
 				</div>
 
-			</div>
+			</div> {% endcomment %}
 
-			<div class="gallery-item" tabindex="0">
+			{% comment %} <div class="gallery-item" tabindex="0">
 
 				<img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=500&h=500&fit=crop"
 					class="gallery-image" alt="">
@@ -128,9 +131,9 @@
 
 				</div>
 
-			</div>
+			</div> {% endcomment %}
 
-			<div class="gallery-item" tabindex="0">
+			{% comment %} <div class="gallery-item" tabindex="0">
 
 				<img src="https://images.unsplash.com/photo-1502630859934-b3b41d18206c?w=500&h=500&fit=crop"
 					class="gallery-image" alt="">
@@ -152,9 +155,9 @@
 
 				</div>
 
-			</div>
+			</div> {% endcomment %}
 
-			<div class="gallery-item" tabindex="0">
+			{% comment %} <div class="gallery-item" tabindex="0">
 
 				<img src="https://images.unsplash.com/photo-1498471731312-b6d2b8280c61?w=500&h=500&fit=crop"
 					class="gallery-image" alt="">
@@ -176,9 +179,9 @@
 
 				</div>
 
-			</div>
+			</div> {% endcomment %}
 
-			<div class="gallery-item" tabindex="0">
+			{% comment %} <div class="gallery-item" tabindex="0">
 
 				<img src="https://images.unsplash.com/photo-1515023115689-589c33041d3c?w=500&h=500&fit=crop"
 					class="gallery-image" alt="">
@@ -194,9 +197,9 @@
 
 				</div>
 
-			</div>
+			</div> {% endcomment %}
 
-			<div class="gallery-item" tabindex="0">
+			{% comment %} <div class="gallery-item" tabindex="0">
 
 				<img src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=500&h=500&fit=crop"
 					class="gallery-image" alt="">
@@ -218,9 +221,9 @@
 
 				</div>
 
-			</div>
+			</div> {% endcomment %}
 
-			<div class="gallery-item" tabindex="0">
+			{% comment %} <div class="gallery-item" tabindex="0">
 
 				<img src="https://images.unsplash.com/photo-1515814472071-4d632dbc5d4a?w=500&h=500&fit=crop"
 					class="gallery-image" alt="">
@@ -236,9 +239,9 @@
 
 				</div>
 
-			</div>
+			</div> {% endcomment %}
 
-			<div class="gallery-item" tabindex="0">
+			{% comment %} <div class="gallery-item" tabindex="0">
 
 				<img src="https://images.unsplash.com/photo-1511407397940-d57f68e81203?w=500&h=500&fit=crop"
 					class="gallery-image" alt="">
@@ -260,9 +263,9 @@
 
 				</div>
 
-			</div>
+			</div> {% endcomment %}
 
-			<div class="gallery-item" tabindex="0">
+			{% comment %} <div class="gallery-item" tabindex="0">
 
 				<img src="https://images.unsplash.com/photo-1518481612222-68bbe828ecd1?w=500&h=500&fit=crop"
 					class="gallery-image" alt="">
@@ -278,9 +281,9 @@
 
 				</div>
 
-			</div>
+			</div> {% endcomment %}
 
-			<div class="gallery-item" tabindex="0">
+			{% comment %} <div class="gallery-item" tabindex="0">
 
 				<img src="https://images.unsplash.com/photo-1505058707965-09a4469a87e4?w=500&h=500&fit=crop"
 					class="gallery-image" alt="">
@@ -296,9 +299,9 @@
 
 				</div>
 
-			</div>
+			</div> {% endcomment %}
 
-			<div class="gallery-item" tabindex="0">
+			{% comment %} <div class="gallery-item" tabindex="0">
 
 				<img src="https://images.unsplash.com/photo-1423012373122-fff0a5d28cc9?w=500&h=500&fit=crop"
 					class="gallery-image" alt="">
@@ -320,7 +323,7 @@
 
 				</div>
 
-			</div>
+			</div> {% endcomment %}
 
 		</div>
 		<!-- End of gallery -->
