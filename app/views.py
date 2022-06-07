@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
 from .models import Profile, Image
-from .forms import NewImageForm, ProfileUpdateForm, UserRegisterForm, UserUpdateForm
+from .forms import ProfileUpdateForm, UserRegisterForm, UserUpdateForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required

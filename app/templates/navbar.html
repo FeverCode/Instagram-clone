@@ -19,26 +19,26 @@
                             <span class="fas fa-camera fa-1x"></span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {% comment %} <li class="nav-item">
                         <a href="">
                             <span class="fas fa-compass fa-1x"></span>
                         </a>
-                    </li>
-                    <li class="nav-item">
+                    </li> {% endcomment %}
+                    {% comment %} <li class="nav-item">
                         <a href="">
                             <span class="fas fa-heart fa-1x"></span>
                         </a>
-                    </li>
+                    </li> {% endcomment %}
                     <li class="nav-item">
                         <a href="{% url 'user-profile'%}">
                             <span class="fas fa-user fa-1x"></span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {% comment %} <li class="nav-item">
                         <a href="">
                             <span class="far fa-paper-plane fa-1x"></span>
                         </a>
-                    </li>
+                    </li> {% endcomment %}
 
                    {% if user.is_authenticated %}
                     <li class="nav-item">
@@ -72,26 +72,26 @@
                             <span class="fas fa-camera fa-1x"></span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {% comment %} <li class="nav-item">
                         <a href="">
                             <span class="fas fa-compass fa-1x"></span>
                         </a>
-                    </li>
-                    <li class="nav-item">
+                    </li> {% endcomment %}
+                    {% comment %} <li class="nav-item">
                         <a href="">
                             <span class="fas fa-heart fa-1x"></span>
-                        </a>
+                        </a> {% endcomment %}
                     </li>
                     <li class="nav-item">
                         <a href="{% url 'user-profile'%}">
                             <span class="fas fa-user fa-1x"></span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {% comment %} <li class="nav-item">
                         <a href="">
                             <span class="far fa-paper-plane fa-1x"></span>
                         </a>
-                    </li>
+                    </li> {% endcomment %}
                 
                     {% if user.is_authenticated %}
                     <li class="nav-item">
